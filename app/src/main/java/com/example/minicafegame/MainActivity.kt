@@ -8,9 +8,7 @@ import androidx.compose.runtime.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.minicafegame.ui.screens.HomeScreen
-import com.example.minicafegame.ui.screens.LoginScreen
-import com.example.minicafegame.ui.screens.RegisterScreen
+import com.example.minicafegame.ui.screens.*
 import com.example.minicafegame.ui.theme.MiniCafeGameTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +29,14 @@ fun CoffeeGameApp() {
     var token by remember { mutableStateOf("") }
     var username by remember { mutableStateOf("") }
 
-    NavHost(navController = navController, startDestination = "login") {
+    NavHost(navController = navController, startDestination = "splash") {
+        composable("splash") {
+            SplashScreen(onFinished = {
+                navController.navigate("login") {
+                    popUpTo("splash") { inclusive = true }
+                }
+            })
+        }
         composable("login") {
             LoginScreen(
                 onLoginSuccess = { t, u ->
