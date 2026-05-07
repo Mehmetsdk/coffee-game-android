@@ -13,10 +13,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.minicafegame.ui.theme.CoffeeBrown
-import com.example.minicafegame.ui.theme.CreamLight
-import com.example.minicafegame.ui.theme.CreamWhite
-import com.example.minicafegame.ui.theme.GoldenYellow
+import com.example.minicafegame.ui.theme.*
 import com.example.minicafegame.viewmodel.AuthState
 import com.example.minicafegame.viewmodel.AuthViewModel
 
@@ -38,7 +35,6 @@ fun LoginScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize().background(CoffeeBrown)) {
-        // Üst dekoratif alan
         Column(
             modifier = Modifier.fillMaxWidth().padding(top = 80.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -52,13 +48,12 @@ fun LoginScreen(
                 fontWeight = FontWeight.Bold
             )
             Text(
-                "Kahve yap, puan kazan!",
+                "Brew coffee, earn rewards!",
                 style = MaterialTheme.typography.bodyMedium,
                 color = GoldenYellow
             )
         }
 
-        // Alt kart
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -68,13 +63,11 @@ fun LoginScreen(
                 .background(CreamLight)
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(28.dp),
+                modifier = Modifier.fillMaxSize().padding(28.dp),
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    "Giriş Yap",
+                    "Sign In",
                     style = MaterialTheme.typography.headlineSmall,
                     color = CoffeeBrown,
                     fontWeight = FontWeight.Bold
@@ -98,7 +91,7 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
-                    label = { Text("Şifre") },
+                    label = { Text("Password") },
                     visualTransformation = PasswordVisualTransformation(),
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
@@ -108,18 +101,17 @@ fun LoginScreen(
                         cursorColor = CoffeeBrown
                     )
                 )
-                Spacer(modifier = Modifier.height(8.dp))
 
                 if (authState is AuthState.Error) {
+                    Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = (authState as AuthState.Error).message,
                         color = MaterialTheme.colorScheme.error,
                         style = MaterialTheme.typography.bodySmall
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(20.dp))
 
                 Button(
                     onClick = { viewModel.login(email, password) },
@@ -135,7 +127,7 @@ fun LoginScreen(
                             strokeWidth = 2.dp
                         )
                     } else {
-                        Text("Giriş Yap", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                        Text("Sign In", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     }
                 }
 
@@ -146,9 +138,9 @@ fun LoginScreen(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("Hesabın yok mu?", color = CoffeeBrown)
+                    Text("Don't have an account?", color = CoffeeBrown)
                     TextButton(onClick = onNavigateToRegister) {
-                        Text("Kayıt ol", color = GoldenYellow, fontWeight = FontWeight.Bold)
+                        Text("Sign up", color = GoldenYellow, fontWeight = FontWeight.Bold)
                     }
                 }
             }

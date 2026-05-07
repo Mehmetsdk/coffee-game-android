@@ -1,48 +1,48 @@
 # ☕ Coffee Game - Android
 
-Kahve dükkanı sadakat uygulamalarını eğlenceli hale getiren bir mobil oyun. Kahve yap, puan kazan, ödül kazan!
+A mobile game that turns boring coffee shop loyalty apps into a fun experience. Brew coffee, earn points, get rewards!
 
-## Hakkında
+## About
 
-Coffee Game, Nero, Starbucks gibi kahve zincirlerinin sıkıcı puan biriktirme sistemlerini oyunlaştıran bağımsız bir mobil uygulamadır. Kullanıcılar 2D bir kahve yapım oyunu oynayarak gerçek ödüller kazanır.
+Coffee Game is an independent mobile app that gamifies the loyalty systems of coffee chains like Nero and Starbucks. Users earn real rewards by playing a 2D coffee-brewing mini-game.
 
-## Ekranlar
+## Screens
 
-- **Splash Screen** — Animasyonlu açılış ekranı
-- **Login / Register** — Kullanıcı girişi ve kayıt
-- **Ana Ekran** — Puan durumu ve oyun geçmişi
+- **Splash Screen** — Animated launch screen
+- **Sign In / Sign Up** — User authentication
+- **Home Screen** — Points dashboard and game history
 
-## Teknolojiler
+## Tech Stack
 
-- **Kotlin** — Ana programlama dili
+- **Kotlin** — Primary language
 - **Jetpack Compose** — Modern Android UI
-- **Retrofit + OkHttp** — Backend API iletişimi
-- **Navigation Compose** — Ekranlar arası geçiş
-- **ViewModel + StateFlow** — State yönetimi
-- **Material 3** — Tasarım sistemi
+- **Retrofit + OkHttp** — Backend API communication
+- **Navigation Compose** — Screen navigation
+- **ViewModel + StateFlow** — State management
+- **Material 3** — Design system
 
-## Kurulum
+## Getting Started
 
-1. Repoyu klonla:
+1. Clone the repository:
 ```bash
 git clone https://github.com/Mehmetsdk/coffee-game-android.git
 ```
 
-2. Android Studio'da aç
+2. Open in Android Studio
 
-3. Backend sunucusunun çalıştığından emin ol → [coffee-game-backend](https://github.com/Mehmetsdk/coffee-game-backend)
+3. Make sure the backend server is running → [coffee-game-backend](https://github.com/Mehmetsdk/coffee-game-backend)
 
-4. Uygulamayı çalıştır (emülatör veya fiziksel cihaz)
+4. Run the app on an emulator or physical device
 
 ## Backend
 
-Bu uygulama Ktor ile yazılmış ayrı bir backend sunucusuna bağlanır.
-Backend reposu: [coffee-game-backend](https://github.com/Mehmetsdk/coffee-game-backend)
+This app connects to a separate backend server built with Ktor (Kotlin).
+Backend repo: [coffee-game-backend](https://github.com/Mehmetsdk/coffee-game-backend)
 
-## Yol Haritası
+## Roadmap
 
-- [ ] 2D kahve yapım oyunu (Korge)
-- [ ] Liderlik tablosu
-- [ ] Haftalık ödül sistemi
-- [ ] Çoklu mağaza desteği (white-label)
-- [ ] Push notification
+- [ ] 2D coffee brewing mini-game (Korge)
+- [ ] Leaderboard
+- [ ] Weekly reward system
+- [ ] Multi-store support (white-label)
+- [ ] Push notifications

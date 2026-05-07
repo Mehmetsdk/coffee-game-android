@@ -40,10 +40,7 @@ fun SplashScreen(onFinished: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.scale(scale.value)
         ) {
-            Text(
-                text = "☕",
-                fontSize = 80.sp
-            )
+            Text(text = "☕", fontSize = 80.sp)
             Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = "Coffee Game",
@@ -53,7 +50,7 @@ fun SplashScreen(onFinished: () -> Unit) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Kahve yap, puan kazan!",
+                text = "Brew coffee, earn rewards!",
                 style = MaterialTheme.typography.bodyLarge,
                 color = GoldenYellow
             )

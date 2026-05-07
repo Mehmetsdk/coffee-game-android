@@ -1,7 +1,6 @@
 package com.example.minicafegame.ui.screens
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -38,51 +37,43 @@ fun HomeScreen(token: String, username: String) {
             totalPoints = response.totalPoints
             history = response.history
         } catch (e: Exception) {
-            // bağlantı hatası
+            // connection error
         } finally {
             isLoading = false
         }
     }
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(CreamLight)
+        modifier = Modifier.fillMaxSize().background(CreamLight)
     ) {
-        // Üst başlık alanı
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(listOf(CoffeeBrown, CoffeeMedium))
-                )
+                .background(Brush.verticalGradient(listOf(CoffeeBrown, CoffeeMedium)))
                 .padding(horizontal = 24.dp, vertical = 32.dp)
         ) {
             Column {
                 Text(
-                    "Merhaba, $username! ☕",
+                    "Hello, $username! ☕",
                     style = MaterialTheme.typography.titleLarge,
                     color = CreamWhite,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    "Bugün ne içmek istersin?",
+                    "What would you like today?",
                     style = MaterialTheme.typography.bodyMedium,
                     color = GoldenYellow
                 )
             }
         }
 
-        // Puan kartı
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
                 .offset(y = (-20).dp)
                 .clip(RoundedCornerShape(20.dp))
-                .background(
-                    Brush.horizontalGradient(listOf(WarmAmber, GoldenYellow))
-                )
+                .background(Brush.horizontalGradient(listOf(WarmAmber, GoldenYellow)))
                 .padding(24.dp)
         ) {
             Row(
@@ -92,7 +83,7 @@ fun HomeScreen(token: String, username: String) {
             ) {
                 Column {
                     Text(
-                        "Toplam Puan",
+                        "Total Points",
                         style = MaterialTheme.typography.bodyMedium,
                         color = CoffeeDark,
                         fontWeight = FontWeight.Medium
@@ -117,7 +108,6 @@ fun HomeScreen(token: String, username: String) {
             }
         }
 
-        // Oyun butonu
         Button(
             onClick = {
                 scope.launch {
@@ -139,27 +129,24 @@ fun HomeScreen(token: String, username: String) {
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = CoffeeBrown)
         ) {
-            Text("☕  Oyun Oyna (+3 Puan)", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text("☕  Play Game (+3 Points)", fontWeight = FontWeight.Bold, fontSize = 16.sp)
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Geçmiş başlık
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                "Puan Geçmişi",
+                "Points History",
                 style = MaterialTheme.typography.titleMedium,
                 color = CoffeeBrown,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                "${history.size} kayıt",
+                "${history.size} records",
                 style = MaterialTheme.typography.bodySmall,
                 color = CoffeeMedium
             )
@@ -176,7 +163,7 @@ fun HomeScreen(token: String, username: String) {
                 modifier = Modifier.fillMaxWidth().padding(40.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Henüz puan yok. Oynamaya başla!", color = CoffeeMedium)
+                Text("No points yet. Start playing!", color = CoffeeMedium)
             }
         } else {
             LazyColumn(
@@ -191,9 +178,7 @@ fun HomeScreen(token: String, username: String) {
                         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
                     ) {
                         Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
+                            modifier = Modifier.fillMaxWidth().padding(16.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -210,7 +195,8 @@ fun HomeScreen(token: String, username: String) {
                                 Spacer(modifier = Modifier.width(12.dp))
                                 Column {
                                     Text(
-                                        entry.reason.replace("_", " ").replaceFirstChar { it.uppercase() },
+                                        entry.reason.replace("_", " ")
+                                            .replaceFirstChar { it.uppercase() },
                                         style = MaterialTheme.typography.bodyMedium,
                                         color = CoffeeBrown,
                                         fontWeight = FontWeight.Medium

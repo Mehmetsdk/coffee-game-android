@@ -13,10 +13,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.minicafegame.ui.theme.CoffeeBrown
-import com.example.minicafegame.ui.theme.CreamLight
-import com.example.minicafegame.ui.theme.CreamWhite
-import com.example.minicafegame.ui.theme.GoldenYellow
+import com.example.minicafegame.ui.theme.*
 import com.example.minicafegame.viewmodel.AuthState
 import com.example.minicafegame.viewmodel.AuthViewModel
 
@@ -46,13 +43,13 @@ fun RegisterScreen(
             Text("☕", fontSize = 52.sp)
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                "Aramıza Katıl",
+                "Join Us",
                 style = MaterialTheme.typography.headlineMedium,
                 color = CreamWhite,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                "Hesap oluştur ve oynamaya başla",
+                "Create an account and start playing",
                 style = MaterialTheme.typography.bodyMedium,
                 color = GoldenYellow
             )
@@ -67,13 +64,11 @@ fun RegisterScreen(
                 .background(CreamLight)
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(28.dp),
+                modifier = Modifier.fillMaxSize().padding(28.dp),
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    "Kayıt Ol",
+                    "Sign Up",
                     style = MaterialTheme.typography.headlineSmall,
                     color = CoffeeBrown,
                     fontWeight = FontWeight.Bold
@@ -83,7 +78,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = username,
                     onValueChange = { username = it },
-                    label = { Text("Kullanıcı Adı") },
+                    label = { Text("Username") },
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
                     colors = OutlinedTextFieldDefaults.colors(
@@ -111,7 +106,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
-                    label = { Text("Şifre") },
+                    label = { Text("Password") },
                     visualTransformation = PasswordVisualTransformation(),
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
@@ -147,7 +142,7 @@ fun RegisterScreen(
                             strokeWidth = 2.dp
                         )
                     } else {
-                        Text("Kayıt Ol", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                        Text("Sign Up", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     }
                 }
 
@@ -158,9 +153,9 @@ fun RegisterScreen(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("Zaten hesabın var mı?", color = CoffeeBrown)
+                    Text("Already have an account?", color = CoffeeBrown)
                     TextButton(onClick = onNavigateToLogin) {
-                        Text("Giriş yap", color = GoldenYellow, fontWeight = FontWeight.Bold)
+                        Text("Sign in", color = GoldenYellow, fontWeight = FontWeight.Bold)
                     }
                 }
             }
